@@ -42,7 +42,7 @@ class App extends React.Component<Props, State> {
   render() {
     return (
       <ErrorBoundary>
-        <BrowserRouter basename="/repoName">
+        <BrowserRouter basename="/React-NASA-API-TypeScript">
           <div className="App">
             <MainComponent size={this.state.size} />
           </div>
