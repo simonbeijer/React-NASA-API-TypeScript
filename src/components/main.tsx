@@ -32,7 +32,7 @@ class MainComponent extends React.Component<Props, State> {
           style={this.props.size === "desktop" ? MainStyle : MainStyleMobile}
         >
           <Switch>
-            <Route exact path="/">
+            <Route basename={process.env.PUBLIC_URL} exact path="/">
               <Header
                 overflow={this.state.toggleSidebar}
                 size={this.props.size}
