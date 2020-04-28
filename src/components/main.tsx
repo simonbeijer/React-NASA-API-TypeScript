@@ -3,7 +3,7 @@ import Header from "./header";
 import Footer from "./footer";
 import Sidebar from "./sidebar";
 import SidebarDiv from "./sidebardiv";
-import { Switch, Route, HashRouter } from "react-router-dom";
+import { Switch, Route} from "react-router-dom";
 
 interface Props {
   size: string;
@@ -32,8 +32,7 @@ class MainComponent extends React.Component<Props, State> {
           style={this.props.size === "desktop" ? MainStyle : MainStyleMobile}
         >
           <Switch>
-          <HashRouter basename="/">
-            <Route exact path="/">
+            <Route exact path={process.env.PUBLIC_URL + '/'}>
               <Header
                 overflow={this.state.toggleSidebar}
                 size={this.props.size}
@@ -56,7 +55,6 @@ class MainComponent extends React.Component<Props, State> {
                 sidebarToggle={this.clickSidebar}
               />
             </Route>
-            </HashRouter>
           </Switch>
         </main>
       </>
