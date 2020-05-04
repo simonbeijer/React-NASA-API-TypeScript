@@ -3,7 +3,7 @@ import Header from "./header";
 import Footer from "./footer";
 import Sidebar from "./sidebar";
 import SidebarDiv from "./sidebardiv";
-import { Switch, Route } from "react-router-dom";
+
 
 interface Props {
   size: string;
@@ -23,39 +23,33 @@ class MainComponent extends React.Component<Props, State> {
     this.clickSidebar = this.clickSidebar.bind(this);
   }
 
-  clickSidebar() {}
+  clickSidebar() {
+    this.setState(state => ({
+      toggleSidebar: !state.toggleSidebar
+    }));
+  }
 
   render() {
     return (
       <>
-        <main
-          style={this.props.size === "desktop" ? MainStyle : MainStyleMobile}
+        <main 
+        style={this.props.size === "desktop" ? MainStyle : MainStyleMobile}
         >
-          <Switch>
-            <Route exact path="/">
               <Header
                 overflow={this.state.toggleSidebar}
                 size={this.props.size}
               />
               <Sidebar
                 size={this.props.size}
-                path="/images"
                 sidebarToggle={this.clickSidebar}
               />
               <Footer
                 overflow={this.state.toggleSidebar}
                 size={this.props.size}
+                />
+              <SidebarDiv 
+              size={this.props.size} toggleSidebar={this.state.toggleSidebar}
               />
-            </Route>
-            <Route path="/images">
-              <SidebarDiv size={this.props.size} />
-              <Sidebar
-                size={this.props.size}
-                path="/"
-                sidebarToggle={this.clickSidebar}
-              />
-            </Route>
-          </Switch>
         </main>
       </>
     );

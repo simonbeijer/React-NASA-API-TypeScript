@@ -4,6 +4,7 @@ import { PhotoManifestData, ManifestData, PhotoData } from "../apiTypes";
 
 interface Props {
   size: string;
+  toggleSidebar: boolean;
 }
 
 interface State {
@@ -97,6 +98,11 @@ class SidebarDiv extends React.Component<Props, State> {
 
   render() {
     return (
+      <>
+      {this.props.toggleSidebar ? (
+
+      
+        
       <div style={DisplayStyle}>
         <h3 style={H3Style}>Sol (day on Mars) {this.state.value}</h3>
 
@@ -108,7 +114,10 @@ class SidebarDiv extends React.Component<Props, State> {
           size={this.props.size}
           data={this.state.data}
         />
+        
       </div>
+      ) : null }
+      </>
     );
   }
 }
