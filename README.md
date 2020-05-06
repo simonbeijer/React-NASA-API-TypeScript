@@ -19,3 +19,7 @@ För att köra appen i webbläsaren skriver du först in "npm install" och däre
 ## GitHub
 
 Länk till repot: https://github.com/markusakarlsson/miniprojekt1
+
+## GitHub Pages
+
+Länk till pages: https://simonbeijer.github.io/React-NASA-API-TypeScript/
